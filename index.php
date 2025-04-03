@@ -6,7 +6,7 @@ function getPokemonData($count)
     //generar un array de 5 pokemons aleatorios
     for ($i = 0; $i < $count; $i++) {
         // 1) genera número aleatorio entre 1 y 150
-        $numAleatorio = rand(1, 150);
+        $numAleatorio = rand(1, 151);
         // 2) lee el contenido de la api 
         $pokeCont = file_get_contents("https://pokeapi.co/api/v2/pokemon/$numAleatorio");
         if (!$pokeCont) {
