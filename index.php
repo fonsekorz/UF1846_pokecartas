@@ -9,8 +9,14 @@ function getPokemonData($count)
         $numAleatorio = rand(1, 150);
         // 2) lee el contenido de la api 
         $pokeCont = file_get_contents("https://pokeapi.co/api/v2/pokemon/$numAleatorio");
+        if (!$pokeCont) {
+            continue; // Si no se puede obtener el contenido, continuamos con la siguiente iteración
+        }
         // 3) lo decodifica
         $data = json_decode($pokeCont, true);
+        if (!$data) {
+            continue; // Si no se puede decodificar el JSON, continuamos con la siguiente iteración
+        }
         // 4) Creo un objeto pokemon con los datos que necesito
         $objPokemon = [
             "id" => $data["id"],
@@ -39,7 +45,7 @@ function renderCards($pokeArray)
     foreach ($pokeArray as $pokemon) {
         echo "<div class='carta'>";
         echo "<div class='img-container'>";
-        echo "<img src='" . $pokemon["imagen"] . "' alt='" . $pokemon["nombre"] . "' />";
+        echo "<img src='" . $pokemon["imagen"] . "' alt='" . $pokemon["nombre"] . "' loading='lazy' />";
         echo "</div>";
         echo "<div class='datos'>";
         echo "<h3 class='pokemon-name'>" . ucfirst($pokemon["nombre"]) . "</h3>";
