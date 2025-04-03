@@ -17,19 +17,31 @@ function getPokemonData($count)
         if (!$data) {
             continue; // Si no se puede decodificar el JSON, continuamos con la siguiente iteración
         }
+        // Llamo a la función isShiny para determinar si el pokemon es shiny o no
+        $isShiny = isShiny();
+        // Si el pokemon es shiny, uso la imagen shiny, sino la normal
+        $imagen = $isShiny && isset($data["sprites"]["front_shiny"]) ? $data["sprites"]["front_shiny"] : $data["sprites"]["front_default"];
+
         // 4) Creo un objeto pokemon con los datos que necesito
         $objPokemon = [
             "id" => $data["id"],
             "nombre" => $data["name"],
-            "imagen" => $data["sprites"]["front_default"],
+            "imagen" => $imagen,
             "tipos" => $data["types"],
-            "habilidades" => $data["abilities"]
+            "habilidades" => $data["abilities"],
+            "isShiny"=> $isShiny
         ];
         // 5) Agrego el objeto pokemon al array
         $pokemonArray[] = $objPokemon;
     }
     // 6) Devuelvo el array de pokemons
     return $pokemonArray;
+}
+
+// Esta función simula la probabilidad de que un pokemon sea shiny (1 de cada 151)
+function isShiny()
+{
+    return rand(1, 10) == 1; // 1 de cada 151 pokemons es shiny
 }
 
 // Obtenemos 5 pokemons por defecto
@@ -43,7 +55,8 @@ function renderCards($pokeArray)
 
     // Recorremos el array de pokemons
     foreach ($pokeArray as $pokemon) {
-        echo "<div class='carta'>";
+        $shinyClass = $pokemon["isShiny"] ? ' shiny' : ''; // Agregamos la clase shiny si el pokemon es shiny
+        echo "<div class='carta$shinyClass'>";
         echo "<div class='img-container'>";
         echo "<img src='" . $pokemon["imagen"] . "' alt='" . $pokemon["nombre"] . "' loading='lazy' />";
         echo "</div>";

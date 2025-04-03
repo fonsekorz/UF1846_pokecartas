@@ -89,12 +89,19 @@ h1 {
 
 .carta {
   background-color: white;
-  border-radius: 12px;
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding: 0;
   position: relative;
+}
+
+.carta.shiny {
+  border: 3px solid gold;
+  background-color: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  animation: shineEffect 1.5s infinite alternate;
 }
 
 .carta::before {
@@ -240,11 +247,13 @@ h4 {
 }
 
 .habilidades {
-  list-style-type: style none;
+  list-style-type: none;
   padding-left: 5px;
   margin: 0;
   max-height: 100px;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .habilidades li {
@@ -254,6 +263,10 @@ h4 {
   text-transform: capitalize;
   margin-right: 8px;
 }
+.habilidades li:last-child {
+  margin-bottom: 0;
+}
+
 .habilidades li:before {
   content: "🔹";
 }
