@@ -10,7 +10,7 @@ function getPokemonData($count)
         // 2) lee el contenido de la api 
         $pokeCont = file_get_contents("https://pokeapi.co/api/v2/pokemon/$numAleatorio");
         if (!$pokeCont) {
-            continue; // Si no se puede obtener el contenido, continuamos con la siguiente iteración
+            echo "VA MAL"; // Si no se puede obtener el contenido, continuamos con la siguiente iteración
         }
         // 3) lo decodifica
         $data = json_decode($pokeCont, true);
@@ -29,7 +29,7 @@ function getPokemonData($count)
             "imagen" => $imagen,
             "tipos" => $data["types"],
             "habilidades" => $data["abilities"],
-            "isShiny"=> $isShiny
+            "isShiny" => $isShiny
         ];
         // 5) Agrego el objeto pokemon al array
         $pokemonArray[] = $objPokemon;
@@ -41,7 +41,7 @@ function getPokemonData($count)
 // Esta función simula la probabilidad de que un pokemon sea shiny (1 de cada 151)
 function isShiny()
 {
-    return rand(1, 10) == 1; // 1 de cada 151 pokemons es shiny
+    return rand(1, 5) == 1; // 1 de cada 5 pokemons es shiny
 }
 
 // Obtenemos 5 pokemons por defecto
