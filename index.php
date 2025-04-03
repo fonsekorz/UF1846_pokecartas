@@ -41,7 +41,7 @@ function getPokemonData($count)
 // Esta función simula la probabilidad de que un pokemon sea shiny (1 de cada 151)
 function isShiny()
 {
-    return rand(1, 5) == 1; // 1 de cada 5 pokemons es shiny
+    return rand(1, 20) == 1; // 1 de cada 20 es shiny
 }
 
 // Obtenemos 5 pokemons por defecto
