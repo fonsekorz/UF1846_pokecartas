@@ -16,7 +16,7 @@
 }
 body {
   background-color: #1a1a2e;
-  background-image: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+  background-image: linear-gradient(135deg, #505058 0%, #0f3460 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   padding: 20px;
@@ -89,34 +89,24 @@ h1 {
 
 .carta {
   background-color: white;
-  border: 2px solid gray;
+  border: 2px solid silver;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  height: auto;
 }
 
 .carta.shiny {
-  border: 4px solid gold;
+  border: 3px solid gold;
   background-color: rgba(255, 215, 0, 0.1);
   box-shadow: 0 0 20px rgba(255, 215, 0, 1);
 }
 
-.carta::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 10px;
-  background: linear-gradient(90deg, #ff0000, #cc0000);
-  z-index: 2;
-}
-
 .carta.shiny:hover {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 1);
-  }
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+}
 
 .carta:hover {
   transform: translateY(-8px) scale(1.05);
@@ -128,11 +118,12 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 18px 0;
   position: relative;
   overflow: hidden;
   background: radial-gradient(circle at center, #f5f5f5 0%, #e0e0e0 100%);
-  border-bottom: grey solid 2px;
+  border: black solid 2px;
+  border-radius: 4px;
 }
 
 .img-container img {
@@ -148,11 +139,64 @@ h1 {
 }
 
 .datos {
+  border: black solid 2px;
+  border-radius: 4px;
   padding: 16px;
   background-color: white;
   color: #333;
   height: auto;
   min-height: 200px;
+}
+.datos.normal {
+  background-color: rgba(168, 168, 120, 0.7);
+}
+.datos.fire {
+  background-color: rgba(240, 128, 48, 0.7);
+}
+.datos.water {
+  background-color: rgba(104, 144, 240, 0.7);
+}
+.datos.grass {
+  background-color: rgba(120, 200, 80, 0.7);
+}
+.datos.electric {
+  background-color: rgba(248, 208, 48, 0.7);
+}
+.datos.ice {
+  background-color: rgba(152, 216, 216, 0.7);
+}
+.datos.fighting {
+  background-color: rgba(192, 48, 40, 0.7);
+}
+.datos.poison {
+  background-color: rgba(160, 64, 160, 0.7);
+}
+.datos.ground {
+  background-color: rgba(224, 192, 104, 0.7);
+}
+.datos.flying {
+  background-color: rgba(168, 144, 240, 0.7);
+}
+.datos.psychic {
+  background-color: rgba(248, 88, 136, 0.7);
+}
+.datos.bug {
+  background-color: rgba(168, 184, 32, 0.7);
+}
+.datos.rock {
+  background-color: rgba(184, 160, 56, 0.7);
+}
+.datos.ghost {
+  background-color: rgba(112, 88, 152, 0.7);
+}
+.datos.dragon {
+  background-color: rgba(112, 56, 248, 0.7);
+}
+.datos.steel {
+  background-color: rgba(184, 184, 208, 0.7);
+}
+.datos.fairy {
+  background-color: rgba(238, 153, 172, 0.7);
 }
 
 .pokemon-name {
@@ -164,7 +208,7 @@ h1 {
 }
 
 .pokemon-id {
-  color: #777;
+  color: #333;
   font-size: 0.9rem;
   margin-bottom: 10px;
   font-weight: bold;
@@ -178,13 +222,14 @@ h1 {
 }
 
 .tipos-pokemon span {
+  border: 1px solid black;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
   padding: 4px 10px;
   text-transform: capitalize;
   color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .tipo-normal {
@@ -241,7 +286,7 @@ h1 {
 
 h4 {
   margin-bottom: 8px;
-  color: #444444e3;
+  color: #333333e3;
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 5px;
 }
@@ -258,8 +303,9 @@ h4 {
 }
 
 .habilidades li {
+  font-weight: bold;
   font-size: 0.9rem;
-  color: #555;
+  color: #333;
   text-transform: capitalize;
   margin-right: 8px;
 }

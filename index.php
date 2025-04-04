@@ -50,9 +50,9 @@ $pokemons = getPokemonData(5);
 //definimos la función renderCards que recibe un array de pokemons y genera el html
 function renderCards($pokeArray)
 {
+    $primerTipo = null;
     // recibe un array de pokemons y genera el html
     echo "<section id='pokecartas'>";
-
     // Recorremos el array de pokemons
     foreach ($pokeArray as $pokemon) {
         $shinyClass = $pokemon["isShiny"] ? ' shiny' : ''; // Agregamos la clase shiny si el pokemon es shiny
@@ -60,7 +60,15 @@ function renderCards($pokeArray)
         echo "<div class='img-container'>";
         echo "<img src='" . $pokemon["imagen"] . "' alt='" . $pokemon["nombre"] . "' loading='lazy' />";
         echo "</div>";
-        echo "<div class='datos'>";
+        echo "<div class='datos";
+        foreach ($pokemon["tipos"] as $tipo) {
+            if ($tipo["slot"] === 1) {
+                $primerTipo = $tipo["type"]["name"];
+                break;
+            }
+        }
+        echo " " . $primerTipo;
+        echo "'>";
         echo "<h3 class='pokemon-name'>" . ucfirst($pokemon["nombre"]) . "</h3>";
         echo "<p class='pokemon-id'>#" . $pokemon["id"] . "</p>";
         echo "<div class='tipos-pokemon'>";
@@ -80,6 +88,7 @@ function renderCards($pokeArray)
 
     echo "</section>";
 }
+
 ?>
 
 <!DOCTYPE html>
