@@ -50,36 +50,60 @@ $pokemons = getPokemonData(5);
 //definimos la función renderCards que recibe un array de pokemons y genera el html
 function renderCards($pokeArray)
 {
+    $primerTipo = null;
     // recibe un array de pokemons y genera el html
     echo "<section id='pokecartas'>";
 
-    // Recorremos el array de pokemons
     foreach ($pokeArray as $pokemon) {
-        $shinyClass = $pokemon["isShiny"] ? ' shiny' : ''; // Agregamos la clase shiny si el pokemon es shiny
-        echo "<div class='carta$shinyClass'>";
+        // Obtenemos la clase shiny si es shiny
+        $shinyClass = $pokemon["isShiny"] ? 'shiny' : '';
+
+        // Obtenemos el primer tipo
+        $primerTipo = null;
+        foreach ($pokemon["tipos"] as $tipo) {
+            if ($tipo["slot"] === 1) {
+                $primerTipo = $tipo["type"]["name"];
+                break;
+            }
+        }
+
+        // Renderizamos la carta con el fondo y la clase shiny
+        echo "<div class='carta $shinyClass $primerTipo'>";  // Aquí solo usamos clases
+
+        // Contenedor de imagen
         echo "<div class='img-container'>";
         echo "<img src='" . $pokemon["imagen"] . "' alt='" . $pokemon["nombre"] . "' loading='lazy' />";
         echo "</div>";
-        echo "<div class='datos'>";
+
+        // Contenedor de datos
+        echo "<div class='datos $primerTipo'>";
         echo "<h3 class='pokemon-name'>" . ucfirst($pokemon["nombre"]) . "</h3>";
         echo "<p class='pokemon-id'>#" . $pokemon["id"] . "</p>";
+
+        // Tipos del pokemon
         echo "<div class='tipos-pokemon'>";
         foreach ($pokemon["tipos"] as $tipo) {
             echo "<span class='tipo-" . $tipo["type"]["name"] . "'>" . $tipo["type"]["name"] . "</span>";
         }
         echo "</div>";
+
+        // Habilidades del pokemon
         echo "<h4>Habilidades:</h4>";
         echo "<ul class='habilidades'>";
         foreach ($pokemon["habilidades"] as $habilidad) {
             echo "<li>" . str_replace("-", " ", $habilidad["ability"]["name"]) . "</li>";
         }
         echo "</ul>";
-        echo "</div>";
-        echo "</div>";
+
+        // Cierre del div datos y div carta
+        echo "</div>";  // Cierra .datos
+        echo "</div>";  // Cierra .carta
     }
 
+    // Cierre de la sección
     echo "</section>";
 }
+
 ?>
 
 <!DOCTYPE html>
