@@ -51,6 +51,7 @@ $pokemons = getPokemonData(5);
 function renderCards($pokeArray)
 {
     $primerTipo = null;
+    $primerTipo = null;
     // recibe un array de pokemons y genera el html
     echo "<section id='pokecartas'>";
 
