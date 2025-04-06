@@ -88,10 +88,6 @@ h1 {
 }
 
 .carta {
-<<<<<<< HEAD
-=======
-  background-color: white;
->>>>>>> 3feb649b5c9c2b70434e1b22cdaa12dc2e2a26ac
   border: 2px solid silver;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -99,7 +95,6 @@ h1 {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   height: auto;
-<<<<<<< HEAD
   padding: 5px;
 }
 
@@ -153,16 +148,10 @@ h1 {
 }
 .carta.fairy {
   background-color: rgba(238, 153, 172, 0.7);
-=======
->>>>>>> 3feb649b5c9c2b70434e1b22cdaa12dc2e2a26ac
 }
 
 .carta.shiny {
   border: 3px solid gold;
-<<<<<<< HEAD
-=======
-  background-color: rgba(255, 215, 0, 0.1);
->>>>>>> 3feb649b5c9c2b70434e1b22cdaa12dc2e2a26ac
   box-shadow: 0 0 20px rgba(255, 215, 0, 1);
 }
 
@@ -203,10 +192,7 @@ h1 {
 .datos {
   border: black solid 2px;
   border-radius: 4px;
-<<<<<<< HEAD
   margin-top: 8px;
-=======
->>>>>>> 3feb649b5c9c2b70434e1b22cdaa12dc2e2a26ac
   padding: 16px;
   background-color: white;
   color: #333;
