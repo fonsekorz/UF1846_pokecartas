@@ -53,7 +53,6 @@ body::before {
       transparent 25px
     );
   background-size: 300px 300px;
-  z-index: -1;
 }
 
 header {
@@ -91,77 +90,140 @@ h1 {
   border: 2px solid silver;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   height: auto;
   padding: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+}
+
+.carta.shiny {
+  position: relative;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid silver;
+  background: linear-gradient(
+    45deg,
+    #ff6f00,
+    #ffb300,
+    #ff4b5c,
+    #9b4dff,
+    #4b94ff
+  );
+  background-size: 400% 400%;
+  animation: shineEffect 3s ease-in-out infinite,
+    borderGlow 2s ease-in-out infinite;
+}
+
+@keyframes shineEffect {
+  0% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    background-position: 100% 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 30px rgba(255, 255, 255, 1);
+  }
+  100% {
+    background-position: 0% 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 20px rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 20px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(255, 255, 255, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 20px rgba(255, 255, 255, 0.6);
+  }
+}
+
+.carta.shiny:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.carta:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 .carta.normal {
   background-color: rgba(168, 168, 120, 0.7);
 }
+
 .carta.fire {
   background-color: rgba(240, 128, 48, 0.7);
 }
+
 .carta.water {
   background-color: rgba(104, 144, 240, 0.7);
 }
+
 .carta.grass {
   background-color: rgba(120, 200, 80, 0.7);
 }
+
 .carta.electric {
   background-color: rgba(248, 208, 48, 0.7);
 }
+
 .carta.ice {
   background-color: rgba(152, 216, 216, 0.7);
 }
+
 .carta.fighting {
   background-color: rgba(192, 48, 40, 0.7);
 }
+
 .carta.poison {
   background-color: rgba(160, 64, 160, 0.7);
 }
+
 .carta.ground {
   background-color: rgba(224, 192, 104, 0.7);
 }
+
 .carta.flying {
   background-color: rgba(168, 144, 240, 0.7);
 }
+
 .carta.psychic {
   background-color: rgba(248, 88, 136, 0.7);
 }
+
 .carta.bug {
   background-color: rgba(168, 184, 32, 0.7);
 }
+
 .carta.rock {
   background-color: rgba(184, 160, 56, 0.7);
 }
+
 .carta.ghost {
   background-color: rgba(112, 88, 152, 0.7);
 }
+
 .carta.dragon {
   background-color: rgba(112, 56, 248, 0.7);
 }
+
 .carta.steel {
   background-color: rgba(184, 184, 208, 0.7);
 }
+
 .carta.fairy {
   background-color: rgba(238, 153, 172, 0.7);
-}
-
-.carta.shiny {
-  border: 3px solid gold;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
-}
-
-.carta.shiny:hover {
-  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
-}
-
-.carta:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .img-container {
@@ -199,54 +261,71 @@ h1 {
   height: auto;
   min-height: 200px;
 }
+
 .datos.normal {
   background-color: rgba(168, 168, 120, 0.7);
 }
+
 .datos.fire {
   background-color: rgba(240, 128, 48, 0.7);
 }
+
 .datos.water {
   background-color: rgba(104, 144, 240, 0.7);
 }
+
 .datos.grass {
   background-color: rgba(120, 200, 80, 0.7);
 }
+
 .datos.electric {
   background-color: rgba(248, 208, 48, 0.7);
 }
+
 .datos.ice {
   background-color: rgba(152, 216, 216, 0.7);
 }
+
 .datos.fighting {
   background-color: rgba(192, 48, 40, 0.7);
 }
+
 .datos.poison {
   background-color: rgba(160, 64, 160, 0.7);
 }
+
 .datos.ground {
   background-color: rgba(224, 192, 104, 0.7);
 }
+
 .datos.flying {
   background-color: rgba(168, 144, 240, 0.7);
 }
+
 .datos.psychic {
   background-color: rgba(248, 88, 136, 0.7);
 }
+
 .datos.bug {
   background-color: rgba(168, 184, 32, 0.7);
 }
+
 .datos.rock {
   background-color: rgba(184, 160, 56, 0.7);
 }
+
 .datos.ghost {
   background-color: rgba(112, 88, 152, 0.7);
 }
+
 .datos.dragon {
   background-color: rgba(112, 56, 248, 0.7);
 }
+
 .datos.steel {
   background-color: rgba(184, 184, 208, 0.7);
 }
+
 .datos.fairy {
   background-color: rgba(238, 153, 172, 0.7);
 }
@@ -287,51 +366,66 @@ h1 {
 .tipo-normal {
   background-color: #a8a878;
 }
+
 .tipo-fire {
   background-color: #f08030;
 }
+
 .tipo-water {
   background-color: #6890f0;
 }
+
 .tipo-grass {
   background-color: #78c850;
 }
+
 .tipo-electric {
   background-color: #f8d030;
 }
+
 .tipo-ice {
   background-color: #98d8d8;
 }
+
 .tipo-fighting {
   background-color: #c03028;
 }
+
 .tipo-poison {
   background-color: #a040a0;
 }
+
 .tipo-ground {
   background-color: #e0c068;
 }
 .tipo-flying {
   background-color: #a890f0;
 }
+
 .tipo-psychic {
   background-color: #f85888;
 }
+
 .tipo-bug {
   background-color: #a8b820;
 }
+
 .tipo-rock {
   background-color: #b8a038;
 }
+
 .tipo-ghost {
   background-color: #705898;
 }
+
 .tipo-dragon {
   background-color: #7038f8;
 }
+
 .tipo-steel {
   background-color: #b8b8d0;
 }
+
 .tipo-fairy {
   background-color: #ee99ac;
 }
@@ -376,20 +470,25 @@ h4 {
 }
 
 #btn-cargar {
-  background: linear-gradient(145deg, #ee1515, #cc0000);
-  color: white;
-  border: 2px solid grey;
-  padding: 12px 24px;
-  border-radius: 30px;
+  background: linear-gradient(145deg, #ffcb05, #f7b500); /* Amarillo Pokémon */
+  color: #3b4cca; /* Azul de los botones Pokémon */
+  border: 2px solid #3b4cca; /* Azul de borde */
+  padding: 16px 40px; /* Más grande y más largo */
+  border-radius: 40px; /* Borde más redondeado */
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.5rem; /* Texto más grande */
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 5px; /* Mayor separación de letras */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  font-family: "Impact", "Arial Black", sans-serif;
 }
 
 #btn-cargar::before {
@@ -399,12 +498,12 @@ h4 {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3); 
   transition: left 0.5s ease;
 }
 
 #btn-cargar:hover {
-  background: linear-gradient(145deg, #cc0000, #aa0000);
+  background: linear-gradient(145deg, #f7b500, #ffcb05);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
@@ -412,6 +511,18 @@ h4 {
 #btn-cargar:hover::before {
   left: 100%;
 }
+
+#btn-cargar:active {
+  background: linear-gradient(145deg, #f4a300, #ffcb05); 
+  transform: translateY(2px);
+}
+
+#btn-cargar i.fas.fa-pokeball {
+  margin-right: 10px;
+  font-size: 1.8rem;
+  color: #ffcb05;
+}
+
 
 @media (max-width: 768px) {
   #pokecartas {

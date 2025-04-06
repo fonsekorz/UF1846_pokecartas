@@ -21,7 +21,6 @@ function getPokemonData($count)
         $isShiny = isShiny();
         // Si el pokemon es shiny, uso la imagen shiny, sino la normal
         $imagen = $isShiny && isset($data["sprites"]["front_shiny"]) ? $data["sprites"]["front_shiny"] : $data["sprites"]["front_default"];
-
         // 4) Creo un objeto pokemon con los datos que necesito
         $objPokemon = [
             "id" => $data["id"],
@@ -37,28 +36,21 @@ function getPokemonData($count)
     // 6) Devuelvo el array de pokemons
     return $pokemonArray;
 }
-
 // Esta función simula la probabilidad de que un pokemon sea shiny (1 de cada 20)
 function isShiny()
 {
     return rand(1, 20) == 1; // 1 de cada 20 es shiny
 }
-
 // Obtenemos 5 pokemons por defecto
 $pokemons = getPokemonData(5);
-
 //definimos la función renderCards que recibe un array de pokemons y genera el html
 function renderCards($pokeArray)
 {
-    $primerTipo = null;
-    $primerTipo = null;
     // recibe un array de pokemons y genera el html
     echo "<section id='pokecartas'>";
-
     foreach ($pokeArray as $pokemon) {
         // Obtenemos la clase shiny si es shiny
         $shinyClass = $pokemon["isShiny"] ? 'shiny' : '';
-
         // Obtenemos el primer tipo
         $primerTipo = null;
         foreach ($pokemon["tipos"] as $tipo) {
@@ -67,27 +59,21 @@ function renderCards($pokeArray)
                 break;
             }
         }
-
-        // Renderizamos la carta con el fondo y la clase shiny
-        echo "<div class='carta $shinyClass $primerTipo'>";  // Aquí solo usamos clases
-
+        echo "<div class='carta $shinyClass $primerTipo'>";
         // Contenedor de imagen
         echo "<div class='img-container'>";
         echo "<img src='" . $pokemon["imagen"] . "' alt='" . $pokemon["nombre"] . "' loading='lazy' />";
         echo "</div>";
-
         // Contenedor de datos
-        echo "<div class='datos $primerTipo'>";
+        echo "<div class='datos $primerTipo'>";  // Se asegura de que .datos tenga el fondo correcto
         echo "<h3 class='pokemon-name'>" . ucfirst($pokemon["nombre"]) . "</h3>";
         echo "<p class='pokemon-id'>#" . $pokemon["id"] . "</p>";
-
         // Tipos del pokemon
         echo "<div class='tipos-pokemon'>";
         foreach ($pokemon["tipos"] as $tipo) {
             echo "<span class='tipo-" . $tipo["type"]["name"] . "'>" . $tipo["type"]["name"] . "</span>";
         }
         echo "</div>";
-
         // Habilidades del pokemon
         echo "<h4>Habilidades:</h4>";
         echo "<ul class='habilidades'>";
@@ -95,18 +81,12 @@ function renderCards($pokeArray)
             echo "<li>" . str_replace("-", " ", $habilidad["ability"]["name"]) . "</li>";
         }
         echo "</ul>";
-
-        // Cierre del div datos y div carta
-        echo "</div>";  // Cierra .datos
-        echo "</div>";  // Cierra .carta
+        echo "</div>";
+        echo "</div>";
     }
-
-    // Cierre de la sección
     echo "</section>";
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -115,6 +95,8 @@ function renderCards($pokeArray)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeWeb</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -124,7 +106,9 @@ function renderCards($pokeArray)
     <div id="container">
         <?php renderCards($pokemons); ?>
         <div id="botonera">
-            <button id="btn-cargar" onclick="location.reload()">Cargar 5 Cartas</button>
+            <button id="btn-cargar" onclick="location.reload()">
+                <i class="fas fa-pokeball"></i> Cargar 5 Cartas
+            </button>
         </div>
     </div>
 </body>
