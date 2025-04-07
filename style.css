@@ -111,27 +111,30 @@ h1 {
     #00ffff,
     #0000ff,
     #8b00ff,
-    #ff0000,
+    #0000ff,
+    #00ffff,
+    #00ff00,
+    #ffff00,
     #ffa500,
-    #ffff00
+    #ff0000
   );
-  background-size: 800% 100%;
-  animation: shineEffect 2s linear infinite, borderGlow 2s ease-in-out infinite;
+  background-size: 200% 100%;
+  animation: shineEffect 3s linear infinite, borderGlow 3s ease-in-out infinite;
 }
 
 @keyframes shineEffect {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 0%;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
       0 0 20px rgba(255, 255, 255, 0.6);
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 100% 100%;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
       0 0 30px rgba(255, 255, 255, 1);
   }
   100% {
-    background-position: 200% 50%;
+    background-position: 200% 200%;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
       0 0 20px rgba(255, 255, 255, 0.6);
   }
