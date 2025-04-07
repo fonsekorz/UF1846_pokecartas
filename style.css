@@ -476,20 +476,20 @@ h4 {
 }
 
 #btn-cargar {
-  background: linear-gradient(145deg, #ffcb05, #f7b500); /* Amarillo Pokémon */
-  color: #3b4cca; /* Azul de los botones Pokémon */
-  border: 2px solid #3b4cca; /* Azul de borde */
-  padding: 16px 40px; /* Más grande y más largo */
-  border-radius: 40px; /* Borde más redondeado */
+  background: linear-gradient(145deg, #ffcb05, #f7b500);
+  color: #3b4cca;
+  border: 2px solid #3b4cca;
+  padding: 16px 40px;
+  border-radius: 40px;
   cursor: pointer;
-  font-size: 1.5rem; /* Texto más grande */
+  font-size: 1.5rem;
   font-weight: bold;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   text-transform: uppercase;
-  letter-spacing: 5px; /* Mayor separación de letras */
+  letter-spacing: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
